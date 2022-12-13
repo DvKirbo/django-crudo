@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+</head>
+<meta charset = "UTF-8">
+<meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+<meta name = "viewport" content "width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href ="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+<body>
+    
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Cueto(github)</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                
+                {% if user.is_authenticated %}
+                <li class="nav-item">              
+                    <a class="nav-link active" aria-current="page" href = "/logout">Cerrar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href = "/correoForm">Correo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href = "/analisis">Analisis</a>
+                </li>
+                {% else %}
+                   <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href = "/signup">Registrarse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href = "/singin">Ingresar</a>
+                    </li>
+                    {% endif %}
+                </ul>
+                
+            </li>
+        </ul>
+    </div>
+</div>
+</nav>
+
+<nav>    
+    </nav>
+    {% block content%}
+
+
+
+    {% endblock %}
+</body>
+<footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2022 <a href="https://github.com/IMCueto/CRUD">IMCueto - Kirbo</a>.</strong>
+    github <a href="https://github.com/IMCueto/"><img src = "https://pbs.twimg.com/profile_images/1344041284080525313/djZPUg0W_400x400.jpg" width ="64" height = "64"><img src = "https://cdn-icons-png.flaticon.com/512/25/25231.png" width ="50" height = "50">
+  </footer>
+</html>

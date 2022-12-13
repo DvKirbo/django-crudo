@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+
+
+
+{% block content %}
+
+
+<main>
+    <form method = 'POST' class = "card card-body">
+        <h1 class="text-center">Registrese </h1>
+        {{error}}
+        {% csrf_token %}
+        {{form.as_p}}
+        <button>
+            registrarse
+        </button>
+    </form>
+</main>
+{% endblock %}

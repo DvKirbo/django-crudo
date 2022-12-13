@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+    <form method = 'POST'  class = "card card-body text-center">
+        <h1  class="text-center">Ingrese con su cuenta ya existente</h1>
+        {{error}}
+        {% csrf_token %}
+        {{form.as_p}}
+        <button>
+            Ingresar
+        </button>
+    </form>
+</main>
+{% endblock %}
+

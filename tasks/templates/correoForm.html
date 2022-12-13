@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+<main>
+    <form action = '/correoForm/' method = 'POST'  class = "card card-body text-center">
+        <h1  class="text-center">Reciba el analisis en su correo</h1>
+        {% csrf_token %}
+        {{form.as_p}}
+        <button>
+            Enviar
+        </button>
+    </form>
+</main>
+
+
+
+{% endblock %}
+
