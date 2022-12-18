@@ -113,7 +113,7 @@ def gracias (request):
 
 @login_required
 def analisis (request):
-    return render (request, 'analisis.html')
+    return render (request, 'Analisis.html')
 
 @login_required
 def tabla (request):
