@@ -27,12 +27,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
 #'django-insecure-vs*$3_&tj_@guc%jub@s2npb7ih2ca=(*bhn3sn5w&sd-h38-6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'RENDER' not in os.environ
+DEBUG = True
 
-ALLOWED_HOSTS = [
-    'https://django-crud-cueto.onrender.com',
-    
-]
+ALLOWED_HOSTS = []
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
