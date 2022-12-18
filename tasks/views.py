@@ -28,7 +28,7 @@ def signup (request):
                 user  = User.objects.create_user( username =request.POST ['username'], password=request.POST['password1'] )
                 user.save()
                 login (request, user)
-                return redirect ('home')
+                return redirect ('analisis')
             except IntegrityError:
                 return render (request, 'signup.html', {
                 'form': UserCreationForm,
