@@ -9,12 +9,13 @@ from django.core.mail import send_mail, EmailMultiAlternatives
 from django.conf import settings
 from django.template.loader import get_template
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home (request):
     return render (request, 'home.html')
 
-@csrf_exempt
+#@csrf_exempt
 def signup (request):
     
     if request.method == 'GET':
@@ -47,11 +48,12 @@ def create_task (request):
         'form':TaskForm
     })
 
+@login_required
 def signout (request):
     logout(request)
     return redirect ('home')
 
-@csrf_exempt
+#@csrf_exempt
 def singin (request):
     if request.method == 'GET':
         return render (request, 'singin.html', {
@@ -68,7 +70,8 @@ def singin (request):
             login(request, user)
             return redirect('analisis')
         
-@csrf_exempt
+#@csrf_exempt
+@login_required
 def send_mail (mail) :
     print (mail)
     context = {'mail':mail}
@@ -84,7 +87,8 @@ def send_mail (mail) :
     email.attach_alternative(content, 'text/html')
     email.send()
     
-@csrf_exempt
+#@csrf_exempt
+@login_required
 def correo (request):
    
    #METODO UNO PERO ANTIGUO PARA LLENAR TABLAS
@@ -102,36 +106,47 @@ def correo (request):
        mail = request.POST['direccion']
        send_mail(mail)
        return redirect ('/gracias/')
-   
+
+@login_required   
 def gracias (request):
     return render (request, 'gracias.html')
 
+@login_required
 def analisis (request):
     return render (request, 'analisis.html')
 
+@login_required
 def tabla (request):
     return render (request, 'tabla.html')
 
+@login_required
 def variables (request):
     return render (request, 'variables.html')
 
+@login_required
 def r_salud (request):
     return render (request, 'resultado_salud.html')
 
+@login_required
 def r_horas (request):
     return render (request, 'resultado_horas.html')
 
+@login_required
 def r_inter (request):
     return render (request, 'resultado_internet.html')
 
+@login_required
 def r_borrachera (request):
     return render (request, 'resultado_borrachera.html')
 
+@login_required
 def r_resi (request):
     return render (request, 'resultado_residencia.html')
 
+@login_required
 def r_pisados (request):
     return render (request, 'resultado_pisados.html')
 
+@login_required
 def r_fisitonazo (request):
     return render (request, 'resultado_fisitonazo.html')
