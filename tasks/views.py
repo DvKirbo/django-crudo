@@ -48,7 +48,7 @@ def create_task (request):
         'form':TaskForm
     })
 
-@login_required
+
 def signout (request):
     logout(request)
     return redirect ('home')
@@ -71,7 +71,7 @@ def singin (request):
             return redirect('analisis')
         
 #@csrf_exempt
-@login_required
+
 def send_mail (mail) :
     print (mail)
     context = {'mail':mail}
@@ -88,7 +88,7 @@ def send_mail (mail) :
     email.send()
     
 #@csrf_exempt
-@login_required
+
 def correo (request):
    
    #METODO UNO PERO ANTIGUO PARA LLENAR TABLAS
@@ -107,46 +107,46 @@ def correo (request):
        send_mail(mail)
        return redirect ('/gracias/')
 
-@login_required   
+
 def gracias (request):
     return render (request, 'gracias.html')
 
-@login_required
+
 def analisis (request):
     return render (request, 'Analisis.html')
 
-@login_required
+
 def tabla (request):
     return render (request, 'tabla.html')
 
-@login_required
+
 def variables (request):
     return render (request, 'variables.html')
 
-@login_required
+
 def r_salud (request):
     return render (request, 'resultado_salud.html')
 
-@login_required
+
 def r_horas (request):
     return render (request, 'resultado_horas.html')
 
-@login_required
+
 def r_inter (request):
     return render (request, 'resultado_internet.html')
 
-@login_required
+
 def r_borrachera (request):
     return render (request, 'resultado_borrachera.html')
 
-@login_required
+
 def r_resi (request):
     return render (request, 'resultado_residencia.html')
 
-@login_required
+
 def r_pisados (request):
     return render (request, 'resultado_pisados.html')
 
-@login_required
+
 def r_fisitonazo (request):
     return render (request, 'resultado_fisitonazo.html')
